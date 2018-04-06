@@ -20,16 +20,17 @@ class LyricCreate extends Component {
                 content: this.state.content,
                 songId: this.props.songId
             }
-        }).then(() => {
-            this.setState({ content: '' })
-        })
+        }).then(() => this.setState({ content: '' }));
     }
     render() {
         return (
-            <form onSubmit={this.submitHandler} >
-                <label>Add a lyric</label>
-                <input value={this.state.content} onChange={(event) => this.setState({ content: event.target.value })} />
-            </form>
+            <div>
+                <form onSubmit={this.submitHandler} >
+                    <label>Add a lyric</label>
+                    <input value={this.state.content} onChange={(event) => this.setState({ content: event.target.value })} />
+                    <button className="btn" >Create lyric</button>
+                </form>
+            </div>
         );
     }
 }
@@ -38,7 +39,9 @@ const mutation = gql`
         addLyricToSong(content:$content,songId:$songId){
           id
           lyrics{
+            id
             content
+            likes
           }
         }
       }
