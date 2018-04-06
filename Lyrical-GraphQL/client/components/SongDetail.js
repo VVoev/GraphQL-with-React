@@ -11,6 +11,7 @@ class SongDetail extends Component {
         const { song } = this.props.data;
         const { id } = this.props.params;
 
+        //Checking is data is ready if not Loading...
         if (!song) { return <div>Loading...</div> }
 
         return (
