@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import AuthForm from './AuthForm';
 
 class LoginForm extends Component {
     render() {
         return (
-            <h3>
-                LoginForm
-            </h3>
+            <div>
+                <h3>Login</h3>
+                <AuthForm />
+            </div>
         );
     }
 }
