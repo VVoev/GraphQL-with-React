@@ -3,12 +3,14 @@ import AuthForm from './AuthForm';
 
 import Loginmutation from '../mutations/Login';
 import { graphql } from 'react-apollo';
+import query from '../queries/CurrentUser'
 
 class LoginForm extends Component {
 
     handleSubmitForm({ email, password }) {
         this.props.mutate({
-            variables: { email, password }
+            variables: { email, password },
+            refetchQueries: [{ query }]
         });
     }
     render() {
